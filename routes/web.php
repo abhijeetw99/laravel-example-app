@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CManageStudent;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get( '/', [CManageStudent::class, 'index'] );
+Route::get( '/delete/{id}', [CManageStudent::class, 'delete'] );
 
-Route::get('/demo/{name}/{id?}', function( $name, $id = null ) {
-    $data = compact( 'name', 'id' );
-    return view('demo')->with($data);
-});
+// Route::get('/demo/{name}/{id?}', function( $name, $id = null ) {
+//     $data = compact( 'name', 'id' );
+//     return view('demo')->with($data);
+// });
 
-Route::post('/test', function(){
-    echo 'Testing the route';
-});
+// Route::post('/test', function(){
+//     echo 'Testing the route';
+// });
+
+// // Route::get('/about', function(){
+// //     return view( 'about' );
+// // });
+
+// Route::view( '/about', 'about' );
+
+// Route::get( '/user', [User::class, 'index'] );
+
+// Route::view( '/login', 'login' );
+
+// Route::post( '/process_login', [ CManageUsers::class, 'processLogin' ] );
+
+// Route::get('/studentview', [ StudentController::class, 'index' ] );
+
+
+
