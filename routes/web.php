@@ -15,7 +15,11 @@ use App\Http\Controllers\CManageStudent;
 */
 
 Route::get( '/', [CManageStudent::class, 'index'] );
+Route::get( '/add_student', [CManageStudent::class, 'addStudent'] );
 Route::get( '/delete/{id}', [CManageStudent::class, 'delete'] );
+Route::get( '/edit/{id}', [CManageStudent::class, 'edit'] );
+Route::post( '/save', [CManageStudent::class, 'save'] );
+Route::post( '/update', [CManageStudent::class, 'update'] );
 
 // Route::get('/demo/{name}/{id?}', function( $name, $id = null ) {
 //     $data = compact( 'name', 'id' );

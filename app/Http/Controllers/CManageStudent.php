@@ -19,4 +19,30 @@ class CManageStudent extends Controller
         return redirect('/');
     }
 
+    public function edit($id) {
+        $data = student::find( $id );
+        return view('edit_student', ['data' => $data]);
+    }
+
+    public function addStudent() {
+        return view('add_student', ['data' => []]);
+    }
+
+    public function save( Request $request ) {
+        $objStudent = new student();
+        $objStudent->name = $request->name;
+        $objStudent->age = $request->age;
+        $objStudent->save();
+        return redirect('/');
+
+    }
+
+    public function update( Request $request ) {
+        $objStudent = student::find( $request->id );
+        $objStudent->name = $request->name;
+        $objStudent->age = $request->age;
+        $objStudent->save();
+        return redirect('/');
+    }
+
 }
